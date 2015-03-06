@@ -1,0 +1,505 @@
+// imports
+
+@import 'font-awesome.css';
+@import 'mixins';
+
+// variables
+
+// original colors
+
+//@color1: #4b8864;
+//@color2: #feefa0;
+//@color3: #fcaf2d;
+//@color4: #b34924;
+
+@color1: #27ae60;
+@color2: #f1c40f;
+@color3: #e67e22;
+@color4: #c0392b;
+
+@heading: 'Montserrat';
+@copy: 'Open Sans';
+@fallback: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+@menu-item-height: 2.5em;
+
+@desktop: ~'min-width: 768px';
+@mobile: ~'max-width: 768px';
+
+html,
+body {
+  height: 100%;
+  font-family: @copy, @fallback;
+  -webkit-font-smoothing: antialiased;
+
+  @media (@mobile) {
+    overflow-x: hidden;
+  }
+}
+
+.container {
+  .display-flex();
+  min-height: 100%;
+  width: 500vw;
+
+  & > div {
+    min-width: 100vw;
+    z-index: 10;
+  }
+
+  p {
+    font-family: @copy, @fallback;
+    font-weight: 100;
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+}
+
+#home {
+  @home-column-width: 478px;
+
+  height: 100vh;
+  .display-flex();
+  -webkit-box-orient: horizontal;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media(@mobile) {
+    width: 100%;
+    height: auto;
+  }
+
+  div {
+    &:first-child {
+      .flex(1);
+      padding: 50px;
+
+      @media (@mobile) {
+        padding: 20px;
+      }
+    }
+
+    &:last-child {
+      .flex(2);
+      margin-top: 50px;
+
+      @media (@mobile) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @media (@mobile) {
+    display: block;
+  }
+
+  #logo {
+    width: 100%;
+    height: auto;
+    max-width: @home-column-width;
+    margin-bottom: 24px;
+  }
+
+  p {
+    max-width: @home-column-width;
+    margin-bottom: 46px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  #menu {
+    @offset: 0;
+
+    @media (@desktop) {
+      display: none;
+    }
+
+    position: absolute;
+    top: @offset;
+    right: @offset;
+    color: #95a5a6;
+    cursor: pointer;
+
+    span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: #bdc3c7;
+      margin-bottom: 6px;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    @media (@mobile) {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background: white;
+      display: none;
+    }
+
+    li {
+      height: @menu-item-height;
+      line-height: @menu-item-height;
+      padding-left: 1.25em;
+      font-size: 48px;
+      font-family: @heading, @fallback;
+      font-weight: 700;
+      text-transform: capitalize;
+      margin-bottom: 30px;
+      transition: all .2s ease-in-out;
+      cursor: pointer;
+      width: 100%;
+
+      &:nth-child(1) {
+        background: @color1;
+      }
+      &:nth-child(2) {
+        background: @color2;
+      }
+      &:nth-child(3) {
+        background: @color3;
+      }
+      &:nth-child(4) {
+        background: @color4;
+        margin-bottom: 0;
+      }
+
+      &:active {
+        opacity: .6;
+      }
+
+      @media (@desktop) {
+        &:hover {
+          transform: translateX(-50px);
+          width: 100%;
+        }
+
+        &:after {
+          @triangle-width: 25px;
+
+          content: '';
+          float: right;
+          margin-right: 35px;
+          border-top: @triangle-width solid transparent;
+          border-left: @triangle-width solid black;
+          border-bottom: @triangle-width solid transparent;
+          margin-top: 0.75em;
+        }
+      }
+
+      @media (@mobile) {
+        text-align: center;
+        font-size: 2em;
+        padding: 0;
+        margin-bottom: 0;
+        height: 25vh;
+        line-height: 25vh;
+      }
+    }
+  }
+}
+
+.section {
+
+  h1 {
+    color: white;
+    text-transform: capitalize;
+    font-size: 96px;
+    margin: 0;
+    display: inline-block;
+    height: 100vh;
+    padding-top: 50px;
+    text-indent: 50px;
+    text-shadow: 1px 1px rgba(0,0,0,.2);
+    font-family: @heading, @fallback;
+    font-weight: 400;
+    position: absolute;
+
+    i {
+      @margin: 15px;
+
+      display: none;
+
+      @media (@mobile) {
+        display: block;
+        position: absolute;
+        top: 15px;
+        font-size: 16px;
+        line-height: 2.25em;
+        cursor: pointer;
+
+        &:first-child {
+          float: left;
+          left: @margin;
+        }
+
+        &:last-child {
+          float: right;
+          right: @margin;
+        }
+      }
+    }
+
+    @media (@mobile) {
+      height: auto;
+      font-size: 2em;
+      width: 100vw;
+      text-align: center;
+      text-indent: 0;
+      padding: 10px 0;
+//      position: fixed;
+//      top: 0;
+    }
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    margin-left: 25vw;
+    margin-top: 25vh;
+    height: 60vh;
+    overflow: hidden;
+    z-index: -1;
+
+    @media (@mobile) {
+      margin-left: 0;
+      margin-top: 10vh;
+      height: auto;
+      padding: 10px;
+      width: 93vw;
+
+      i {
+        cursor: pointer;
+        background: white;
+        color: black;
+        padding: 10px;
+        position: fixed;
+        right: 10px;
+        border-radius: 30px;
+        box-shadow: 0 3px 10px rgba(0,0,0,.2);
+        display: none;
+        transition: all .3s ease-in-out;
+
+        /*&:first-child {
+          position: fixed;
+        }
+
+        &:last-child {
+          bottom: 10px;
+        }*/
+      }
+
+      #backToHome {
+        bottom: 10px;
+      }
+
+      #backToTop {
+        bottom: 50px;
+      }
+    }
+  }
+
+  p {
+    color: black;
+    display: inline-block;
+    width: 100vw;
+    padding: 0 25px;
+
+    @media (@mobile) {
+      padding: 0;
+    }
+  }
+
+  @media (@desktop) {
+
+    &.col-1 {
+      @width: 25vw;
+      @paragraph-width: 97 - @width;
+
+      h1 {
+        width: @width;
+      }
+
+      .content {
+        margin-left: @width;
+        .column-count(3);
+      }
+
+      p {
+        width: 21vw;
+      }
+    }
+
+    &.col-2 {
+      @width: 50vw;
+      @paragraph-width: 97vw - @width;
+
+      h1 {
+        width: @width;
+      }
+
+      .content {
+        margin-left: @width;
+        .column-count(2);
+      }
+
+      p {
+        width: 21vw;
+      }
+    }
+
+    &.col-3 {
+      @width: 75vw;
+      @paragraph-width: 97 - @width;
+
+      h1 {
+        width: @width;
+      }
+
+      .content {
+        margin-left: @width;
+        .column-count(1);
+      }
+
+      p {
+        width: 21vw;
+      }
+    }
+  }
+}
+
+#about {
+  h1 { background: @color1; }
+//  .content i { background: @color1; }
+}
+
+#technology {
+  h1 { background: @color2; }
+//  .content i { background: @color2; }
+}
+
+#content {
+  h1 { background: @color3; }
+//  .content i { background: @color3; }
+}
+
+#news {
+  h1 {
+    background: @color4;
+    i:last-child { display: none; }
+  }
+//  .content i { background: @color4; }
+}
+
+footer {
+  width: 100vw;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  background: #dadada;
+  z-index: 10;
+
+  @media (@mobile) {
+    display: none;
+  }
+
+  & > span {
+    cursor: pointer;
+  }
+
+  .breadcrumb-container {
+    display: inline-block;
+    //        padding-left: 15px;
+  }
+
+  .icon-home {
+    //    @icon-width: 64px;
+
+    //    width: @icon-width;
+    //    height: @icon-width;
+    //    background: #f00;
+    //    display: block;
+    //    background: url('../img/home.png') no-repeat center;
+    //    float: left;
+    margin: 20px 20px;
+    position: relative;
+    top: 12px;
+    color: #909090;
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  .icon-cursor {
+    @width: 12px;
+
+    display: none;
+    width: @width;
+    height: @width;
+    border-radius: @width;
+    border: 6px solid grey;
+    position: absolute;
+    left: 105px;
+    top: 42px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+    background: white;
+  }
+
+  .icon-breadcrumb {
+    @width: 12px;
+    @offset: 5px;
+
+    background: white;
+    position: relative;
+    margin-top: 3em;
+    display: inline-block;
+    width: @width*4;
+    height: @width;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+
+    &.active {
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
+    &.about {
+      margin-left: @offset;
+
+      &:hover,
+      &.active {
+        background: @color1;
+      }
+    }
+
+    &.technology {
+      &:hover,
+      &.active {
+        background: @color2;
+      }
+    }
+
+    &.content {
+      &:hover,
+      &.active {
+        background: @color3;
+      }
+    }
+
+    &.news {
+      margin-right: @offset;
+
+      &:hover,
+      &.active {
+        background: @color4;
+      }
+    }
+  }
+}
