@@ -235,35 +235,35 @@ body {
     overflow: hidden;
     z-index: -1;
 
-    .partners {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-
-      li {
-        display: block;
-        margin-bottom: 32px;
-        margin-left: 26px;
-
-        a {
-          text-decoration: none;
-        }
-
-        img {
-          width: auto;
-          height: 32px;
-          @include filter(grayscale(100%));
-        }
-      }
-      
-      .country {
-        color: #ccc;
-        font-size: .75rem;
-        font-weight: 600;
-        padding-left: 8px;
-      }
+    h3 {
+      margin-left: 1.5rem;
+      color: $color-dark;
     }
 
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-left: 1.5em;
+
+      li {
+        margin-bottom: .5em;
+        color: $color-dark;
+        font-size: .8em;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          background: #ccc;
+          border-radius: 6px;
+          margin-right: 6px;
+          position: relative;
+          top: -2px;
+        }
+      }
+    }
 
     @media ($mobile) {
       margin-left: 0;
@@ -346,11 +346,68 @@ body {
   }
 }
 
-#about { h1 { background: $color1; } }
+#about { 
+  h1 { background: $color1; } 
 
-#technology { h1 { background: $color2; } }
+  h3 {
+    padding-top: 24px;
+  }
 
-#content { h1 { background: $color3; } }
+  .partners {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: block;
+      margin-bottom: 32px;
+      margin-left: 26px;
+
+      &:before { display: none; }
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        @include filter(grayscale(100%));
+
+        width: auto;
+        height: 32px;
+        opacity: .75;
+
+        &:hover {
+          @include filter(grayscale(0%));
+
+          opacity: 1;
+        }
+      }
+    }
+
+    .country {
+      color: #ccc;
+      font-size: .75rem;
+      font-weight: 600;
+      padding-left: 8px;
+    }
+  }
+}
+
+#technology { 
+  h1 { background: $color2; } 
+
+  h3:nth-child(2) {
+    border: 1px solid;
+  }
+}
+
+#content { 
+  h1 { background: $color3; } 
+
+  .content {
+    width: 100%;
+  }
+}
 
 #news {
   h1 {

@@ -254,26 +254,28 @@ body {
   height: 80vh;
   overflow: hidden;
   z-index: -1; }
-  .section .content .partners {
+  .section .content h3 {
+    margin-left: 1.5rem;
+    color: #3c3c3c; }
+  .section .content ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none; }
-    .section .content .partners li {
-      display: block;
-      margin-bottom: 32px;
-      margin-left: 26px; }
-      .section .content .partners li a {
-        text-decoration: none; }
-      .section .content .partners li img {
-        width: auto;
-        height: 32px;
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%); }
-    .section .content .partners .country {
-      color: #ccc;
-      font-size: .75rem;
-      font-weight: 600;
-      padding-left: 8px; }
+    margin-left: 1.5em; }
+    .section .content ul li {
+      margin-bottom: .5em;
+      color: #3c3c3c;
+      font-size: .8em; }
+      .section .content ul li:before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #ccc;
+        border-radius: 6px;
+        margin-right: 6px;
+        position: relative;
+        top: -2px; }
   @media (max-width: 768px) {
     .section .content {
       margin-left: 0;
@@ -335,12 +337,45 @@ body {
 
 #about h1 {
   background: #27ae60; }
+#about h3 {
+  padding-top: 24px; }
+#about .partners {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  #about .partners li {
+    display: block;
+    margin-bottom: 32px;
+    margin-left: 26px; }
+    #about .partners li:before {
+      display: none; }
+    #about .partners li a {
+      text-decoration: none; }
+    #about .partners li img {
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+      width: auto;
+      height: 32px;
+      opacity: .75; }
+      #about .partners li img:hover {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+        opacity: 1; }
+  #about .partners .country {
+    color: #ccc;
+    font-size: .75rem;
+    font-weight: 600;
+    padding-left: 8px; }
 
 #technology h1 {
   background: #f1c40f; }
+#technology h3:nth-child(2) {
+  border: 1px solid; }
 
 #content h1 {
   background: #e67e22; }
+#content .content {
+  width: 100%; }
 
 #news h1 {
   background: #c0392b; }
