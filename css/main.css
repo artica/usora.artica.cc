@@ -265,7 +265,8 @@ body {
     .section .content ul li {
       margin-bottom: .5em;
       color: #3c3c3c;
-      font-size: .8em; }
+      font-size: .8em;
+      line-height: 1.75em; }
       .section .content ul li:before {
         content: '';
         display: inline-block;
