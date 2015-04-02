@@ -1,10 +1,12 @@
 @import 'font-awesome.css';
-@import 'mixins';
+@import 'compass';
 
 $color1: #27ae60;
 $color2: #f1c40f;
 $color3: #e67e22;
 $color4: #c0392b;
+
+$color-dark: rgb(60,60,60);
 
 $heading: 'Montserrat';
 $copy: 'Open Sans';
@@ -155,7 +157,7 @@ body {
           float: right;
           margin-right: 35px;
           border-top: $triangle-width solid transparent;
-          border-left: $triangle-width solid black;
+          border-left: $triangle-width solid $color-dark;
           border-bottom: $triangle-width solid transparent;
           margin-top: 0.75em;
         }
@@ -233,6 +235,36 @@ body {
     overflow: hidden;
     z-index: -1;
 
+    .partners {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: block;
+        margin-bottom: 32px;
+        margin-left: 26px;
+
+        a {
+          text-decoration: none;
+        }
+
+        img {
+          width: auto;
+          height: 32px;
+          @include filter(grayscale(100%));
+        }
+      }
+      
+      .country {
+        color: #ccc;
+        font-size: .75rem;
+        font-weight: 600;
+        padding-left: 8px;
+      }
+    }
+
+
     @media ($mobile) {
       margin-left: 0;
       margin-top: 10vh;
@@ -243,7 +275,7 @@ body {
       i {
         cursor: pointer;
         background: white;
-        color: black;
+        color: $color-dark;
         padding: 10px;
         position: fixed;
         right: 10px;
@@ -260,7 +292,7 @@ body {
   }
 
   p {
-    color: black;
+    color: $color-dark;
     display: inline-block;
     width: 100vw;
     padding: 0 25px;
