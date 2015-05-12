@@ -41,7 +41,7 @@ body {
   p {
     font-family: $copy, $fallback;
     font-weight: 100;
-    font-size: 1em;
+    font-size: .8em;
     line-height: 1.5em;
   }
 }
@@ -231,12 +231,12 @@ body {
     top: 0;
     margin-left: 25vw;
     // margin-top: 25vh;
-    height: 80vh;
+    height: 70vh;
     overflow: hidden;
     z-index: -1;
 
     h3 {
-      margin-left: 1.5rem;
+      margin: 0 0 0 1.5rem;
       color: $color-dark;
     }
 
@@ -343,7 +343,7 @@ body {
         @include column-count(2);
       }
 
-      p { width: 21vw; }
+      p { width: 20vw; }
     }
 
     &.col-3 {
@@ -366,7 +366,8 @@ body {
   h1 { background: $color1; } 
 
   h3 {
-    padding-top: 24px;
+    padding-top: .6rem;
+    margin-bottom: 1rem;
   }
 
   .partners {
