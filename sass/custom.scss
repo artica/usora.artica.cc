@@ -43,6 +43,10 @@ body {
     font-weight: 100;
     font-size: .8em;
     line-height: 1.5em;
+
+    @media (min-width: 768px) and (max-width: 1280px) {
+      font-size: .7em;
+    }
   }
 }
 
@@ -390,7 +394,8 @@ body {
         @include filter(grayscale(100%));
 
         width: auto;
-        height: 32px;
+        width: 128px;
+        // height: 32px;
         opacity: .75;
 
         &:hover {
@@ -398,6 +403,11 @@ body {
 
           opacity: 1;
         }
+      }
+
+      &:last-child img {
+        width: auto;
+        height: 64px;
       }
     }
 

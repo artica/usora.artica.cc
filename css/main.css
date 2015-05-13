@@ -102,6 +102,9 @@ body {
     font-weight: 100;
     font-size: .8em;
     line-height: 1.5em; }
+    @media (min-width: 768px) and (max-width: 1280px) {
+      .container p {
+        font-size: .7em; } }
 
 #home {
   height: 100vh;
@@ -364,12 +367,15 @@ body {
       -webkit-filter: grayscale(100%);
       filter: grayscale(100%);
       width: auto;
-      height: 32px;
+      width: 128px;
       opacity: .75; }
       #about .partners li img:hover {
         -webkit-filter: grayscale(0%);
         filter: grayscale(0%);
         opacity: 1; }
+    #about .partners li:last-child img {
+      width: auto;
+      height: 64px; }
   #about .partners .country {
     color: #ccc;
     font-size: .75rem;
